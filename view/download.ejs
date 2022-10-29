@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <img src="" alt="" class="logo">
+
+    <section class="download">
+        <img src="" alt="" class="download_icon">
+        <%if(locals.error){%>
+            <h4><%=locals.error%></h4>
+        <%}else{%>
+        <h1 style="color: rgb(118, 32, 32);"><b>Your file is ready to download</b></h1>
+        <div class="download_meta">
+            <h4 style="color: rgb(108, 22, 166);"><u><%=fileName%></u></h4>
+            <small style="color: rgb(47, 204, 47);"><b><%= parseInt(fileSize/1024)%> KB</b></small>
+        </div>
+        <div class="send-btn-container">
+            <a href="<%=downloadLink%>"><b>Download Now</b></a>
+        </div>
+        <p style="color: rgba(255, 0, 0, 0.88);">Link Expires in 24 hours</p>
+        <%}%>
+    </section>
+</body>
+</html>
