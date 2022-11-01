@@ -1,6 +1,7 @@
 const express=require('express');
 const db=require('./config/db');
 const cors=require('cors');
+const schedule=require('node-schedule');
 const app=express();
 const path=require('path');
 
@@ -30,3 +31,10 @@ app.use('/files-shared/download',require('./routes/downlink'))
 
 // static folder 
 app.use(express.static('view'));
+
+
+// scheduler
+const delData=require('./delScript');
+schedule.scheduleJob('0 */6 * * *', ()=>{
+    delData();
+})

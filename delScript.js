@@ -1,9 +1,10 @@
 const File=require('./models/file');
 const fs=require('fs');
-const db=require('./config/db')
+// const db=require('./config/db')
 
-db();
-delData().then(process.exit);
+// db();
+// delData();
+
 
 async function delData(){
     const ptime=new Date(Date.now()-24*60*60*1000);
@@ -20,4 +21,8 @@ async function delData(){
             }
         }
     }
+    
 }
+
+
+module.exports=delData;
