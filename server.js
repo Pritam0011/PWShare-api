@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 db();
 
 const corsOpt={
-    origin:'http://localhost:3000'
+    origin:process.env.ALLOWED_ORIGINS.split(',')
 }
 app.use(cors(corsOpt));
 
