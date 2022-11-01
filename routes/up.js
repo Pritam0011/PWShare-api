@@ -52,7 +52,7 @@ router.post('/link-send',async(req,res)=>{
     }
 
     const file=await File.findOne({uuid:uuid});
-    if(file.sender==emailTo){
+    if(file.receiver==emailTo){
         return res.status(422).send({error:'Already send once!'});
     }
     file.sender=emailFrom;

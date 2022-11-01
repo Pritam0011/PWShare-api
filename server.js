@@ -1,5 +1,6 @@
 const express=require('express');
 const db=require('./config/db');
+const cors=require('cors');
 const app=express();
 const path=require('path');
 
@@ -9,6 +10,12 @@ app.set('view engine', 'ejs');
 
 
 db();
+
+const corsOpt={
+    origin:'http://localhost:3000'
+}
+app.use(cors(corsOpt));
+
 PORT=process.env.PORT || 3000;
 app.listen(PORT, ()=>{
     console.log(`Listening on http://localhost:${PORT}`);
@@ -23,4 +30,3 @@ app.use('/files-shared/download',require('./routes/downlink'))
 
 // static folder 
 app.use(express.static('view'));
-app.use(express.static('util'));
