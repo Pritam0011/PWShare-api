@@ -7,14 +7,17 @@ const fs=require('fs');
 
 
 async function delData(){
-    const ptime=new Date(Date.now()-24*60*60*1000);
-    const file=await File.find({
+    // const ptime=new Date(Date.now()-24*60*60*1000);
+    const ptime=new Date(Date.now()-0.5*60*1000);
+    const files=await File.find({
         createdAt:{$lt:ptime}
     });
-    if(file.length){
-        for(const file of file){
+    if(files.length){
+        for(const file of files){
             try{
                 fs.unlinkSync(file.path);
+                console.log('unlinkSync done');
+                
                 await file.remove();
             }catch(err){
                 console.log(err);
