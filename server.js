@@ -35,7 +35,6 @@ app.use(express.static('view'));
 
 // scheduler
 const delData=require('./delScript');
-schedule.scheduleJob('*/2 * * * *', ()=>{
+schedule.scheduleJob('0 */4 * * *', ()=>{
     delData();
-    console.log('deldata done');
 })
