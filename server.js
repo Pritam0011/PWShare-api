@@ -13,7 +13,9 @@ app.set('view engine', 'ejs');
 db();
 
 const corsOpt={
-    origin:process.env.ALLOWED_ORIGINS.split(',')
+    origin:'*',
+    methods:['GET','POST'],
+    allowedHeaders:['Content-Type',],
 }
 app.use(cors(corsOpt));
 
