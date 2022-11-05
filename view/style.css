@@ -1,7 +1,7 @@
 
 :root{
     --main-bg:#d7d8c9;
-    --light-yellow: #e4ff34;
+    --light-yellow: yellow;
     --dark-yr: #d7ba00a6;
 }
 
@@ -18,12 +18,15 @@ body{
     justify-content: center;
     align-items: center;
 }
-.logo {
+.logo{
     position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 150px;
-  }
+    width:130px;
+    top: 15px;
+    left: 20px;
+    background-color: yellow;
+    box-shadow: 0 0 1px yellow, 0 0 1px yellow, 0 0 1px yellow, 0 0 1px yellow,
+    0 0 40px yellow;
+}
 section.download {
     background: #fff;
     width: 430px;
@@ -33,13 +36,7 @@ section.download {
     padding: 2rem;
     text-align: center;
 }
-.download__icon {
-    height: 8rem;
-}
-.download__meta h4 {
-    margin-bottom: 0;
-    line-height: 1.3;
-}
+
 .send-btn-container a {
     display: inline-block;
     font-size: 18px;
@@ -47,7 +44,7 @@ section.download {
     margin-top: 15px;
     background: var(--light-yellow);
     text-decoration: none;
-    border: none;
+    border: 1px solid black;
     border-radius: 10px;
     color: #000;
     cursor: pointer;
@@ -55,7 +52,10 @@ section.download {
   }
 
   .send-btn-container a:hover {
+    border: none;
+    transition: all 0.32s ease;
+  }
+  .send-btn-container a:active {
       background: var(--dark-yr);
-    /* color: #fff; */
     transition: all 0.32s ease;
   }
